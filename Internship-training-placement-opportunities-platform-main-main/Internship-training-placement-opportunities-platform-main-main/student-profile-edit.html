@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - HIRENXT</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.css" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-nav">
+                <div class="dashboard-brand">
+                    <img src="assets/images/logo.png" alt="HIRENXT" class="logo-img">
+                    <h1>HIRENXT</h1>
+                    <span class="user-role">Student</span>
+                </div>
+                
+                <nav class="dashboard-menu">
+                    <a href="student-dashboard.html" class="menu-item">Dashboard</a>
+                    <a href="student-internships.html" class="menu-item">Internships</a>
+                    <a href="student-applications.html" class="menu-item">Applications</a>
+                    <a href="student-profile.html" class="menu-item">Profile</a>
+                </nav>
+                
+                <div class="dashboard-user">
+                    <div class="user-dropdown">
+                        <div class="user-avatar" id="userAvatar">U</div>
+                        <div class="dropdown-menu">
+                            <a href="student-profile.html" class="dropdown-item">
+                                <i data-lucide="user"></i>
+                                View Profile
+                            </a>
+                            <a href="student-profile-edit.html" class="dropdown-item active">
+                                <i data-lucide="edit"></i>
+                                Edit Profile
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" onclick="logout()">
+                                <i data-lucide="log-out"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="edit-profile-header">
+                <h1>Edit Profile</h1>
+                <p>Update your personal and professional information</p>
+            </div>
+
+            <form class="edit-profile-form" id="editProfileForm">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h2>
+                        <i data-lucide="user"></i>
+                        Personal Information
+                    </h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="editFullName">Full Name *</label>
+                            <input type="text" id="editFullName" name="fullName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmail">Email Address *</label>
+                            <input type="email" id="editEmail" name="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPhone">Phone Number</label>
+                            <input type="tel" id="editPhone" name="phone" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="editDob">Date of Birth</label>
+                            <input type="date" id="editDob" name="dob" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="editLocation">Location</label>
+                            <input type="text" id="editLocation" name="location" class="form-input" placeholder="City, Country">
+                        </div>
+                        <div class="form-group">
+                            <label for="editStudentId">Student ID *</label>
+                            <input type="text" id="editStudentId" name="studentId" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="form-section">
+                    <h2>
+                        <i data-lucide="graduation-cap"></i>
+                        Education
+                    </h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="editDegree">Degree *</label>
+                            <input type="text" id="editDegree" name="degree" class="form-input" placeholder="e.g., B.Tech Computer Science" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editInstitution">Institution *</label>
+                            <input type="text" id="editInstitution" name="institution" class="form-input" placeholder="University Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editDepartment">Department</label>
+                            <input type="text" id="editDepartment" name="department" class="form-input" placeholder="Computer Science">
+                        </div>
+                        <div class="form-group">
+                            <label for="editCgpa">CGPA/GPA</label>
+                            <input type="number" id="editCgpa" name="cgpa" class="form-input" placeholder="4.0" step="0.1" min="0" max="10">
+                        </div>
+                        <div class="form-group">
+                            <label for="editGraduationYear">Graduation Year *</label>
+                            <input type="number" id="editGraduationYear" name="graduationYear" class="form-input" placeholder="2024" min="2000" max="2030" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="form-section">
+                    <h2>
+                        <i data-lucide="award"></i>
+                        Skills
+                    </h2>
+                    <div class="form-group">
+                        <label>Add Your Skills</label>
+                        <div class="skills-input-container">
+                            <input type="text" id="skillInput" class="form-input" placeholder="Type a skill and press Enter">
+                            <button type="button" class="btn btn-outline btn-sm" onclick="addSkill()">Add Skill</button>
+                        </div>
+                        <div class="skills-tags" id="skillsTags">
+                            <!-- Skills will be added here -->
+                        </div>
+                        <small>Separate skills with commas or press Enter to add multiple skills</small>
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="form-section">
+                    <h2>
+                        <i data-lucide="briefcase"></i>
+                        Experience
+                    </h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="editJobTitle">Job Title</label>
+                            <input type="text" id="editJobTitle" name="jobTitle" class="form-input" placeholder="e.g., Web Development Intern">
+                        </div>
+                        <div class="form-group">
+                            <label for="editCompany">Company</label>
+                            <input type="text" id="editCompany" name="company" class="form-input" placeholder="Company Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="editStartDate">Start Date</label>
+                            <input type="month" id="editStartDate" name="startDate" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="editEndDate">End Date</label>
+                            <input type="month" id="editEndDate" name="endDate" class="form-input">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="editJobDescription">Description</label>
+                            <textarea id="editJobDescription" name="jobDescription" class="form-textarea" placeholder="Describe your responsibilities and achievements" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="form-section">
+                    <h2>
+                        <i data-lucide="file-text"></i>
+                        Projects
+                    </h2>
+                    <div id="projectsContainer">
+                        <!-- Projects will be added dynamically -->
+                    </div>
+                    <button type="button" class="btn btn-outline" onclick="addProjectField()">
+                        <i data-lucide="plus"></i>
+                        Add Another Project
+                    </button>
+                </div>
+
+                <!-- Resume -->
+                <div class="form-section">
+                    <h2>
+                        <i data-lucide="file-up"></i>
+                        Resume
+                    </h2>
+                    <div class="form-group">
+                        <label for="editResume">Upload Resume (PDF)</label>
+                        <input type="file" id="editResume" name="resume" class="form-input" accept=".pdf">
+                        <small>Maximum file size: 5MB</small>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="window.location.href='student-profile.html'">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i data-lucide="save"></i>
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <p>&copy; 2025 HIRENXT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/profile-edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - HIRENXT</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.css" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-nav">
+                <div class="dashboard-brand">
+                    <img src="assets/images/logo.png" alt="HIRENXT" class="logo-img">
+                    <h1>HIRENXT</h1>
+                    <span class="user-role">Student</span>
+                </div>
+                
+                <nav class="dashboard-menu">
+                    <a href="student-dashboard.html" class="menu-item">Dashboard</a>
+                    <a href="student-internships.html" class="menu-item">Internships</a>
+                    <a href="student-applications.html" class="menu-item">Applications</a>
+                    <a href="student-profile.html" class="menu-item active">Profile</a>
+                </nav>
+                
+                <div class="dashboard-user">
+                    <div class="user-dropdown">
+                        <div class="user-avatar" id="userAvatar">U</div>
+                        <div class="dropdown-menu">
+                            <a href="student-profile.html" class="dropdown-item">
+                                <i data-lucide="user"></i>
+                                View Profile
+                            </a>
+                            <a href="student-profile-edit.html" class="dropdown-item">
+                                <i data-lucide="edit"></i>
+                                Edit Profile
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" onclick="logout()">
+                                <i data-lucide="log-out"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-avatar-section">
+                    <div class="profile-avatar">
+                        <span id="profileAvatar">U</span>
+                        <button class="avatar-edit-btn" onclick="changeAvatar()">
+                            <i data-lucide="camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-basic-info">
+                        <h1 id="profileName">John Doe</h1>
+                        <p class="profile-title" id="profileTitle">Computer Science Student</p>
+                        <p class="profile-college" id="profileCollege">XYZ University</p>
+                        <div class="profile-actions">
+                            <a href="student-profile-edit.html" class="btn btn-primary">
+                                <i data-lucide="edit"></i>
+                                Edit Profile
+                            </a>
+                            <button class="btn btn-outline" onclick="downloadResume()">
+                                <i data-lucide="download"></i>
+                                Download Resume
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="appliedCount">3</div>
+                        <div class="stat-label">Applied</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="interviewCount">1</div>
+                        <div class="stat-label">Interviews</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="offerCount">0</div>
+                        <div class="stat-label">Offers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="profileCompletion">80%</div>
+                        <div class="stat-label">Profile Complete</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>
+                            <i data-lucide="user"></i>
+                            Personal Information
+                        </h2>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Full Name</label>
+                            <p id="infoFullName">John Doe</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Email</label>
+                            <p id="infoEmail">john.doe@xyz.edu</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Phone</label>
+                            <p id="infoPhone">+1 (555) 123-4567</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Date of Birth</label>
+                            <p id="infoDob">January 15, 2000</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Location</label>
+                            <p id="infoLocation">New York, NY</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Student ID</label>
+                            <p id="infoStudentId">S12345678</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>
+                            <i data-lucide="graduation-cap"></i>
+                            Education
+                        </h2>
+                    </div>
+                    <div class="education-item">
+                        <h3 id="eduDegree">Bachelor of Technology in Computer Science</h3>
+                        <p class="institution" id="eduInstitution">XYZ University</p>
+                        <p class="duration" id="eduDuration">2020 - 2024 | CGPA: 3.8/4.0</p>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>
+                            <i data-lucide="award"></i>
+                            Skills
+                        </h2>
+                    </div>
+                    <div class="skills-container" id="skillsList">
+                        <!-- Skills will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>
+                            <i data-lucide="briefcase"></i>
+                            Experience
+                        </h2>
+                    </div>
+                    <div class="experience-item">
+                        <h3 id="expTitle">Web Development Intern</h3>
+                        <p class="company" id="expCompany">Tech Solutions Inc.</p>
+                        <p class="duration" id="expDuration">June 2023 - August 2023</p>
+                        <p class="description" id="expDescription">Developed responsive web applications using React and Node.js. Collaborated with senior developers on client projects.</p>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>
+                            <i data-lucide="file-text"></i>
+                            Projects
+                        </h2>
+                    </div>
+                    <div class="projects-grid" id="projectsList">
+                        <!-- Projects will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <p>&copy; 2025 HIRENXT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

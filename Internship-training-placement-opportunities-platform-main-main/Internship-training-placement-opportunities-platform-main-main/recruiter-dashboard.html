@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter Dashboard - HIRENXT</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.css" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-nav">
+                <div class="dashboard-brand">
+                    <div class="logo-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <h1>HIRENXT</h1>
+                    <span class="user-role">Industry Recruiter</span>
+                </div>
+                
+                <nav class="dashboard-menu">
+                    <a href="recruiter-dashboard.html" class="menu-item active">Dashboard</a>
+                    <a href="#" class="menu-item">Candidates</a>
+                    <a href="#" class="menu-item">Postings</a>
+                    <a href="#" class="menu-item">Analytics</a>
+                </nav>
+                
+                <div class="dashboard-user">
+                    <div class="user-avatar">R</div>
+                    <button class="btn btn-outline btn-sm" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Header with Action Button -->
+            <div class="section-header">
+                <h2>Eligible Candidates</h2>
+                <button class="btn btn-primary">+ Post New Opportunity</button>
+            </div>
+
+            <!-- Role Matches -->
+            <div class="cards-grid">
+                <div class="role-card">
+                    <div class="card-header">
+                        <div>
+                            <h4>Data Scientist Role</h4>
+                            <p>Python, SQL, Machine Learning</p>
+                        </div>
+                        <span class="badge badge-primary">12 matches</span>
+                    </div>
+                    <button class="btn btn-primary btn-block">View Candidates</button>
+                </div>
+
+                <div class="role-card">
+                    <div class="card-header">
+                        <div>
+                            <h4>Frontend Developer</h4>
+                            <p>React, JavaScript, CSS</p>
+                        </div>
+                        <span class="badge badge-primary">8 matches</span>
+                    </div>
+                    <button class="btn btn-primary btn-block">View Candidates</button>
+                </div>
+            </div>
+
+            <!-- Active Postings -->
+            <div class="dashboard-section">
+                <h2>Your Active Postings</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th>Applications</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Data Science Intern</td>
+                                <td>24 applications</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">View</button>
+                                    <button class="btn btn-outline btn-sm">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>UX Designer</td>
+                                <td>16 applications</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">View</button>
+                                    <button class="btn btn-outline btn-sm">Edit</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <p>&copy; 2025 HIRENXT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

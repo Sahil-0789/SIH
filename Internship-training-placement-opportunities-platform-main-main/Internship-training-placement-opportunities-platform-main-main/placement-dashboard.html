@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Cell Dashboard - HIRENXT</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.css" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-nav">
+                <div class="dashboard-brand">
+                    <div class="logo-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <h1>HIRENXT</h1>
+                    <span class="user-role">Placement Cell</span>
+                </div>
+                
+                <nav class="dashboard-menu">
+                    <a href="placement-dashboard.html" class="menu-item active">Dashboard</a>
+                    <a href="#" class="menu-item">Students</a>
+                    <a href="#" class="menu-item">Opportunities</a>
+                    <a href="#" class="menu-item">Analytics</a>
+                </nav>
+                
+                <div class="dashboard-user">
+                    <div class="user-avatar">P</div>
+                    <button class="btn btn-outline btn-sm" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Total Applicants</h3>
+                        <p class="stat-number">247</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="alert-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Unplaced Students</h3>
+                        <p class="stat-number">42</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="calendar"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Scheduled Interviews</h3>
+                        <p class="stat-number">18</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="trending-up"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Conversion Rate</h3>
+                        <p class="stat-number">32%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header with Action Button -->
+            <div class="section-header">
+                <h2>Recent Internship Opportunities</h2>
+                <button class="btn btn-primary">+ Add New Opportunity</button>
+            </div>
+
+            <!-- Pending Applications -->
+            <div class="dashboard-section">
+                <h2>Pending Student Applications</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Student ID</th>
+                                <th>Role</th>
+                                <th>Company</th>
+                                <th>Applied Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Rahul Sharma</td>
+                                <td>S12345</td>
+                                <td>Data Science Intern</td>
+                                <td>TechCorp</td>
+                                <td>2023-10-15</td>
+                                <td>
+                                    <button class="btn btn-success btn-sm">Approve</button>
+                                    <button class="btn btn-outline btn-sm btn-danger">Decline</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Priya Patel</td>
+                                <td>S12346</td>
+                                <td>Frontend Developer</td>
+                                <td>WebSolutions</td>
+                                <td>2023-10-12</td>
+                                <td>
+                                    <button class="btn btn-success btn-sm">Approve</button>
+                                    <button class="btn btn-outline btn-sm btn-danger">Decline</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Active Opportunities -->
+            <div class="dashboard-section">
+                <h2>Active Internship Opportunities</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th>Company</th>
+                                <th>Stipend</th>
+                                <th>Conversion</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Data Science Intern</td>
+                                <td>TechCorp</td>
+                                <td>₹10,000</td>
+                                <td><span class="badge badge-success">High</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">Edit</button>
+                                    <button class="btn btn-outline btn-sm">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Frontend Developer</td>
+                                <td>WebSolutions</td>
+                                <td>₹8,000</td>
+                                <td><span class="badge badge-warning">Medium</span></td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">Edit</button>
+                                    <button class="btn btn-outline btn-sm">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <p>&copy; 2025 HIRENXT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

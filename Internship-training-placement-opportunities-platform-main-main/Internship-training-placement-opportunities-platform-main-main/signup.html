@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - HIRENXT</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.css" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <i data-lucide="graduation-cap"></i>
+                </div>
+                <h2>Create Account</h2>
+                <p>Join our internship placement platform</p>
+            </div>
+
+            <form class="auth-form" id="signupForm">
+                <!-- Role Selection -->
+                <div class="form-group">
+                    <label for="role">I am a</label>
+                    <div class="select">
+                        <select id="role" name="role" class="form-select" required onchange="toggleRoleFields()">
+                            <option value="">Select Your Role</option>
+                            <option value="student">Student</option>
+                            <option value="recruiter">Industry Recruiter</option>
+                            <option value="placement">Placement Officer</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Common Fields for All Roles -->
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Student Specific Fields -->
+                <div id="studentFields" class="role-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+                        <input type="text" id="studentId" name="studentId" class="form-input" placeholder="Enter your student ID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <div class="select">
+                            <select id="department" name="department" class="form-select">
+                                <option value="">Select Department</option>
+                                <option value="cse">Computer Science</option>
+                                <option value="ece">Electronics & Communication</option>
+                                <option value="mech">Mechanical Engineering</option>
+                                <option value="civil">Civil Engineering</option>
+                                <option value="eee">Electrical Engineering</option>
+                                <option value="it">Information Technology</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="college">College/University</label>
+                        <input type="text" id="college" name="college" class="form-input" placeholder="Enter your college name">
+                    </div>
+                </div>
+
+                <!-- Recruiter Specific Fields -->
+                <div id="recruiterFields" class="role-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" class="form-input" placeholder="Enter your company name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="position">Your Position</label>
+                        <input type="text" id="position" name="position" class="form-input" placeholder="e.g., HR Manager, Talent Acquisition">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companyWebsite">Company Website</label>
+                        <input type="url" id="companyWebsite" name="companyWebsite" class="form-input" placeholder="https://yourcompany.com">
+                    </div>
+                </div>
+
+                <!-- Placement Officer Specific Fields -->
+                <div id="placementFields" class="role-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="institution">Educational Institution</label>
+                        <input type="text" id="institution" name="institution" class="form-input" placeholder="Enter your institution name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="position">Your Position</label>
+                        <input type="text" id="position" name="position" class="form-input" placeholder="e.g., Placement Officer, TPO">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="employeeId">Employee ID</label>
+                        <input type="text" id="employeeId" name="employeeId" class="form-input" placeholder="Enter your employee ID">
+                    </div>
+                </div>
+
+                <!-- Common Fields -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Create a password" required>
+                    <div class="password-requirements">
+                        <small>Must be at least 8 characters with uppercase, lowercase, and numbers</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Sign in here</a></p>
+                <a href="index.html" class="back-home">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

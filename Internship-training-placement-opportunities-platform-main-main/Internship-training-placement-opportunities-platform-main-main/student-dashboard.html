@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - HIRENXT</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.css" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-nav">
+                <div class="dashboard-brand">
+                    <img src="assets/images/logo.png" alt="HIRENXT" class="logo-img">
+                    <h1>HIRENXT</h1>
+                    <span class="user-role">Student</span>
+                </div>
+                
+                <nav class="dashboard-menu">
+                    <a href="student-dashboard.html" class="menu-item active">Dashboard</a>
+                    <a href="#" class="menu-item">Internships</a>
+                    <a href="#" class="menu-item">Analytics</a>
+                </nav>
+                
+                <div class="dashboard-user">
+                    <div class="user-avatar">U</div>
+                    <button class="btn btn-outline btn-sm" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Stats Cards with SVG Icons -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L12 7M12 7L15 4M12 7L9 4M17 14L18 13C19.6569 11.3431 19.6569 8.65685 18 7C16.3431 5.34315 13.6569 5.34315 12 7C10.3431 5.34315 7.65685 5.34315 6 7C4.34315 8.65685 4.34315 11.3431 6 13L7 14M7 14L12 19L17 14M7 14L12 19"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <h3>AI Recommendations</h3>
+                        <p>5 personalized internship matches</p>
+                        <button class="btn btn-primary btn-sm">View Recommendations</button>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Application Status</h3>
+                        <div class="status-stats">
+                            <span>Applied: 3</span>
+                            <span>Interviews: 1</span>
+                            <span>Offers: 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Profile Completion</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                        <p>80% complete</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Pipeline -->
+            <div class="dashboard-section">
+                <h2>Application Pipeline</h2>
+                <div class="pipeline">
+                    <div class="pipeline-step">
+                        <div class="step-indicator">1</div>
+                        <span>Applied</span>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-indicator">2</div>
+                        <span>Under Review</span>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-indicator">3</div>
+                        <span>Interview</span>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-indicator">4</div>
+                        <span>Offer</span>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-indicator">5</div>
+                        <span>Completed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Applications Table -->
+            <div class="dashboard-section">
+                <h2>My Applications</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Applied Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TechCorp</td>
+                                <td>Data Science Intern</td>
+                                <td><span class="badge badge-primary">Applied</span></td>
+                                <td>2023-10-15</td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">View</button>
+                                    <button class="btn btn-outline btn-sm btn-danger">Withdraw</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>WebSolutions</td>
+                                <td>Frontend Developer</td>
+                                <td><span class="badge badge-warning">Under Review</span></td>
+                                <td>2023-10-12</td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">View</button>
+                                    <button class="btn btn-outline btn-sm btn-danger">Withdraw</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>DataPro</td>
+                                <td>ML Engineer</td>
+                                <td><span class="badge badge-secondary">Interview</span></td>
+                                <td>2023-10-18</td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm">View</button>
+                                    <button class="btn btn-outline btn-sm btn-danger">Withdraw</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Recommended Internships -->
+            <div class="dashboard-section">
+                <h2>Recommended Internships</h2>
+                <div class="cards-grid">
+                    <div class="internship-card">
+                        <div class="card-content">
+                            <h4>Data Science Intern</h4>
+                            <p class="company-info">TechCorp • ₹10,000 stipend</p>
+                            <div class="skill-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">SQL</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Apply</button>
+                    </div>
+                    
+                    <div class="internship-card">
+                        <div class="card-content">
+                            <h4>Frontend Developer</h4>
+                            <p class="company-info">WebSolutions • ₹8,000 stipend</p>
+                            <div class="skill-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <p>&copy; 2025 HIRENXT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
