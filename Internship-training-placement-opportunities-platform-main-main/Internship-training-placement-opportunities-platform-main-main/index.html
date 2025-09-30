@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIRENXT - Internship Placement Portal</title>
+    <title>PlacementPro - Internship Placement Portal</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/auth.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="title" content="PlacementPro - Internship Placement Portal">
+    <meta property="og:title" content="PlacementPro - Internship Placement Portal">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <img src="assets/images/logo.png" alt="HIRENXT" class="logo-img">
-                    <h1>HIRENXT</h1>
+                    <img src="assets/images/logo.png" alt="PlacementPro" class="logo-img">
+                    <h1>PlacementPro</h1>
                 </div>
-                <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation" data-nav-toggle=".nav">
+                    <i data-lucide="menu"></i>
+                </button>
+                <nav class="nav" role="navigation" aria-label="Primary">
                     <a href="login.html" class="btn btn-outline">Login</a>
                     <a href="signup.html" class="btn btn-primary">Sign Up</a>
                 </nav>
@@ -31,7 +37,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-logo">
-                <img src="assets/images/logo.png" alt="HIRENXT" class="hero-logo-img">
+                <img src="assets/images/logo.png" alt="PlacementPro" class="hero-logo-img">
             </div>
             <div class="hero-content">
                 <h2>Transform Your Career Journey</h2>
@@ -158,7 +164,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>HIRENXT</h4>
+                    <h4>PlacementPro</h4>
                     <p>Connecting talent with opportunity since 2025</p>
                 </div>
                 <div class="footer-section">
@@ -187,10 +193,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 HIRENXT. All rights reserved.</p>
+                <p>&copy; 2025 PlacementPro. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
     <script src="js/main.js"></script>

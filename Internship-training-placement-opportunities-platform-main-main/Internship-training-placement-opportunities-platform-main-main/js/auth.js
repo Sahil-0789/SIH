@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Login form handling
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
+        loginForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const formData = new FormData(this);
@@ -53,15 +53,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Simulate login process
-            simulateLogin(role, username, password);
+            const btn = this.querySelector('button[type="submit"]');
+            await window.withButtonLoading(btn, async () => {
+                await new Promise(r => setTimeout(r, 1000));
+                window.showToast('success', 'Signed in successfully');
+                simulateLogin(role, username, password);
+            });
         });
     }
 
     // Signup form handling
     const signupForm = document.getElementById('signupForm');
     if (signupForm) {
-        signupForm.addEventListener('submit', function(e) {
+        signupForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const formData = new FormData(this);
@@ -74,8 +78,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Simulate signup process
-            simulateSignup();
+            const btn = this.querySelector('button[type="submit"]');
+            await window.withButtonLoading(btn, async () => {
+                await new Promise(r => setTimeout(r, 1200));
+                window.showToast('success', 'Account created');
+                simulateSignup();
+            });
         });
     }
 });

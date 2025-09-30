@@ -42,3 +42,45 @@ function animateOnScroll() {
 
 // Initialize animations when page loads
 window.addEventListener('load', animateOnScroll);
+
+// Toast utility
+window.showToast = function(type, message) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.innerHTML = `<span>${message}</span><button class="toast-close" aria-label="Close">✕</button>`;
+    container.appendChild(toast);
+    const remove = () => {
+        if (toast.parentNode) toast.parentNode.removeChild(toast);
+    };
+    toast.querySelector('.toast-close').addEventListener('click', remove);
+    setTimeout(remove, 4000);
+}
+
+// Button loading helper
+window.withButtonLoading = async function(button, asyncFn) {
+    if (!button) return asyncFn();
+    const previousAria = button.getAttribute('aria-busy');
+    button.setAttribute('aria-busy', 'true');
+    try {
+        return await asyncFn();
+    } catch (err) {
+        throw err;
+    } finally {
+        if (previousAria === null) button.removeAttribute('aria-busy'); else button.setAttribute('aria-busy', previousAria);
+    }
+}
+
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-nav-toggle]')?.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const targetSelector = toggle.getAttribute('data-nav-toggle');
+            const target = document.querySelector(targetSelector);
+            if (target) target.classList.toggle('show');
+        });
+    });
+});

@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - HIRENXT</title>
+    <title>My Profile - PlacementPro</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/dashboard.css">
     <link rel="stylesheet" href="styles/profile.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="title" content="My Profile - PlacementPro">
+    <meta property="og:title" content="My Profile - PlacementPro">
 </head>
 <body class="dashboard-page">
     <!-- Header -->
-    <header class="dashboard-header">
+    <header class="dashboard-header" role="banner">
         <div class="container">
             <div class="dashboard-nav">
                 <div class="dashboard-brand">
-                    <img src="assets/images/logo.png" alt="HIRENXT" class="logo-img">
-                    <h1>HIRENXT</h1>
+                    <img src="assets/images/logo.png" alt="PlacementPro" class="logo-img">
+                    <h1>PlacementPro</h1>
                     <span class="user-role">Student</span>
                 </div>
                 
-                <nav class="dashboard-menu">
+                <button class="nav-toggle" aria-label="Toggle navigation" data-nav-toggle=".dashboard-menu">
+                    <i data-lucide="menu"></i>
+                </button>
+                <nav class="dashboard-menu" role="navigation" aria-label="Student">
                     <a href="student-dashboard.html" class="menu-item">Dashboard</a>
                     <a href="student-internships.html" class="menu-item">Internships</a>
                     <a href="student-applications.html" class="menu-item">Applications</a>
@@ -192,11 +198,13 @@
     </main>
 
     <!-- Footer -->
-    <footer class="dashboard-footer">
+    <footer class="dashboard-footer" role="contentinfo">
         <div class="container">
-            <p>&copy; 2025 HIRENXT. All rights reserved.</p>
+            <p>&copy; 2025 PlacementPro. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
     <script src="js/dashboard.js"></script>

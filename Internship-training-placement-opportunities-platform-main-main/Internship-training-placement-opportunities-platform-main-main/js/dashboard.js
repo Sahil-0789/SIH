@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize dashboard components
     initializeDashboard();
+
+    // Example info toast on student dashboard
+    if (window.location.pathname.includes('student-dashboard')) {
+        setTimeout(() => window.showToast?.('info', 'Profile updated'), 600);
+    }
 });
 
 function checkAuth() {
